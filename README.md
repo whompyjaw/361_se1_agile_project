@@ -1,4 +1,4 @@
-# dev_branch
-where we test and implement our developed features created by our pairs.
+# features to be merged
+develop features to be added to the 'develop' branch. This could also be branched or labeled as "pair1_features", "pair2_features" etc.
 
-When the source code in the develop branch reaches a stable point and is ready to be released, all of the changes should be merged back into master somehow and then tagged with a release number.
+The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment).
