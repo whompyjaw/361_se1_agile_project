@@ -1,2 +1,2 @@
-# 361_se1_agile_project
-our project for cs361 se1
+# dev_branch
+where we test and implement our group changes
