@@ -4,6 +4,7 @@ We are using Reactjs library to develop our web app.
 ## Filing Organization
 - Component files are created as Pascal or Upper Camel Case. "Header.js" or probably "ThisComponentName.js"
 - Take a look at the current structure. I'm not 100% that this is the best filing approach, but it seems a good idea to create components in their grouping, then we import them into `App.js`
+- Let me know if you have alternative ideas :)
 
 #### Run App 
 `npm start` is used during development to see your changes and such. It will auto-load your changes (thank goodness). And, It should automatically open the app in your defualt browser. 
