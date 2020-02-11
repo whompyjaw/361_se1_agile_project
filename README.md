@@ -1,9 +1,9 @@
 # 361_se1_agile_project
 We are using Reactjs library to develop our web app.
 
-## Filing Organization
+## File Structure
 - I think component files are created as Pascal or Upper Camel Case. e.g. `ThisComponentName.js`
-- Take a look at the current structure. I'm not 100% that this is the best filing approach, but it seems a good idea to create components in their grouping, then we import them into `App.js`
+- Take a look at the current structure. I'm not 100% that this is the best filing approach, but it seems a good idea to create components in their grouping, then we import them into `App.js`. `App.js` is our main js file that will run our app. Call the necessary files, etc.
 - Let me know if you have alternative ideas :)
 
 #### Run App 
