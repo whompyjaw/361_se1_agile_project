@@ -11,5 +11,5 @@ Note: It might take a while to load.
 `npm run build` will create an optimized build of your app in the "build" folder. This will be used at end when we're done, or if we want to test a version.
 
 
-
-In index.js, I changed: serviceWorker.register() so our app loads faster offline. Really only matters if you are going to `npm start` your stuff a lot. But you shouldn't need to.
+#### Notes
+- In index.js, I changed: serviceWorker.register() so our app loads faster offline. Really only matters if you are going to `npm start` your stuff a lot. But you shouldn't need to.
