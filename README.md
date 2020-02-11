@@ -17,6 +17,6 @@ Note: It might take a while to load.
 
 
 #### Notes
-- In index.js, I changed: serviceWorker.register() so our app loads faster offline. Really only matters if you are going to `npm start` your stuff a lot. But you shouldn't need to.
+- In index.js, I changed: `serviceWorker.register()` (it was `.unregister()` before) so our app loads faster offline. Really only matters if you are going to `npm start` your stuff a lot. But you shouldn't need to.
 
 
