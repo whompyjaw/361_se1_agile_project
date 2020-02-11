@@ -2,7 +2,7 @@
 We are using Reactjs library to develop our web app.
 
 #### Run App 
-`npm start`is used during development to see your changes and such. It will auto-load your changes. 
+`npm start` is used during development to see your changes and such. It will auto-load your changes. 
 
 
 #### Deploy App
