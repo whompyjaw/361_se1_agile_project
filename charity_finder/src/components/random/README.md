@@ -1,0 +1,1 @@
+Put all random components in here. Like `Navbar.js`. Things that won't be directly associated with Charity, Beneficiary, or Contributor, but will need to be reused several times.
