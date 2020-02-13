@@ -4,6 +4,7 @@ import './App.css';
 import Login from './components/random/pages/Login'; // This is needed for the routes
 import Navbar from './components/random/navbar/Navbar';
 import Charity from './components/charity/charity';
+import charitySearch from './components/charity/charitySearch';
 
 // TODO: Need an App class instead of a function 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       {/* Route to login page */}
       <Route path="/login" component={Login} />
       <Route path="/charity" component={Charity} />
+      <Route path="/charitySearch" component={charitySearch} />
 
     </Router>
   );
