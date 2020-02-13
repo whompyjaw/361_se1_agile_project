@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './pages/chairtySearch.css';
 import axios from 'axios';
 
@@ -18,6 +18,8 @@ class charitySearch extends React.Component {
     }
 
     fetchSearchresults = (themeId, query) => {
+
+        /* API Token = 234f2d7a-2389-4ffd-9bfd-535a7fa11273 */
         const searchUrl = "https://api.globalgiving.org/api/public/projectservice/themes/edu/projects?api_key=234f2d7a-2389-4ffd-9bfd-535a7fa11273"
 
         if ( this.cancel )  {
@@ -29,16 +31,15 @@ class charitySearch extends React.Component {
         axios.get( searchUrl, {
 			    cancelToken: this.cancel.token
         } )
-        //     .then( res => {
-        //       //const resultNotFoundMsg
-        //       console.warn( res );
-        //     }
-    };
+          .then ( res => {
+            console.warn (res);
+          })
+      }; 
 
     handleOnInputChange = ( event ) => {
         const query = event.target.value;
         console.warn ( query );
-        this.setState( {query: query, loading: true, message: ''} )
+        this.setState( {query: query, loading: true, message: ''});
     };
 
     render() {
