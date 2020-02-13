@@ -11,7 +11,7 @@ const Navbar = props => (
             <div className="push"></div>
             <div className="navbar_nav_element">
                 <ul>
-                    <li><a href="/">Find a Charity (Case 1)</a></li>
+                    <li><Link to="/charitySearch" href="/">Find a Charity (Case 1)</Link></li>
                     <li><Link to="/charity">Charity Information (Case 7)</Link></li>
                     <li><a href="/">Seek Assistence From Charity (Case 10)</a></li>
                     <li><Link to="/login">Login</Link></li>
