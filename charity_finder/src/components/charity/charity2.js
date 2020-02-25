@@ -3,13 +3,13 @@ import './pages/Charity.css';
 function charityProfile() {
     return(
         <React.Fragment>
-            <h2>Cats</h2>
+            <h2>Koalas</h2>
             We're close to reaching our goal!
             <div className="w3-light-grey">
-                  <div className="w3-container w3-green" id="cat-status-bar">95%</div>
+                  <div className="w3-container w3-blue" id="koala-status-bar">75%</div>
             </div><br></br>
             <button type = "submit">Donate Now!</button>
-            <h4>Welcome to Cats charity, thank you for considering us with your gift.</h4>
+            <h4>Welcome to Koalas charity, thank you for considering us with your gift.</h4>
             <p><strong>Our Mission Statement:</strong> <br/> Devoting our extra resources to those without...</p>
 
             <div className="charityTable">
@@ -19,23 +19,23 @@ function charityProfile() {
                     <table>
                     <tr>
                         <td>Website</td>
-                        <td><a href="https://www.youtube.com/watch?v=XyNlqQId-nk">www.catvideo.com</a></td>
+                        <td><a href="https://www.youtube.com/watch?v=XyNlqQId-nk">www.koalavideo.com</a></td>
                     </tr>
                     <tr>
-                        <td>Pysical Address</td>
-                        <td>1234 Main Street</td>
+                        <td>Physical Address</td>
+                        <td>453 Parkway Road</td>
                     </tr>
                     <tr>
                         <td>City</td>
-                        <td>Corvallis</td>
+                        <td>Irvine</td>
                     </tr>
                     <tr>
                         <td>State</td>
-                        <td>Oregon</td>       
+                        <td>California</td>       
                     </tr>
                     <tr>
                         <td>Zip Code</td>
-                        <td>97331</td>
+                        <td>98080</td>
                     </tr>
                     <tr>
                         <td>Deductibility</td>

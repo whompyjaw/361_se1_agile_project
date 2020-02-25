@@ -3,3 +3,15 @@
 body {
     margin-top: 100px;
 }
+
+#cat-status-bar {
+    width:95%;
+}
+
+#dog-status-bar {
+    width:88%;
+}
+
+#koala-status-bar {
+    width:95%;
+}
