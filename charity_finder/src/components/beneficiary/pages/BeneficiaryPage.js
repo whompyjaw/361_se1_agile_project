@@ -1,50 +1,72 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import axios from 'axios';
 
-class BeneficiarySearch extends React.Component {
+class FormData extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      search: '',
+      age: '',
+      sex: '',
+      resultAge: ''
+    };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    //this.handleChange = this.handleChange.bind(this);
+   // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-	const target = event.target
-	const value = target.type === 'checkbox' ? target.checked : target.value
+  handleAgeChange = (event) => {
+    this.setState({
+      age: event.target.value
+    })
+  } 
 
-    const name = target.name;
-    
-    this.setState({[name]:value});
-    //this.setState({value: event.target.value});
+  handleSearchChange = (event) => {
+    this.setState({
+      search: event.target.value
+    })
+  } 
+
+  handleSubmit = event => {
+    // alert(`${this.state.age} ${this.state.search}`);
+    // this.setState({
+    //   resultAge: this.state.age,
+    //   resultSearch: this.state.search
+    // })
+    DisplayData.display(event);
+    event.preventDefault();
   }
-
-// TO DO: Parse data from submit
-// TO DO: Read about formik
-//   class BeneficiaryFilter extends React.Component {
-//       constructor(props) {
-//           super(props);
-//           this.state = {
-//               singleParent: true,
-
-//           }
-//       }
-//   }
   render() {
+    const { search, age, sex } = this.state
     return (
+    <div> 
+     {/*
+     Results:
+      {this.state.resultSearch}
+      {this.state.resultAge}<br /> -->
+    
+     */}  
+      
+      
+      
+      
+      
       <form onSubmit={this.handleSubmit}>
         <label>
           Search:
-          <input name="search" type="text" value={this.state.search} onChange={this.handleChange} />
+          <input name="search" type="text" value={search} onChange={this.handleSearchChange} />
         </label>
 		<br />
+      <label>
+
+
+      </label>
 		<label>
           Age:
-          <input name="age" type="text" value={this.state.age} onChange={this.handleChange} />
+          <input name="age" type="text" value={age} onChange={this.handleAgeChange} />
         </label>
 		<br />
-		<label>
+		{/* <label>
           Sex:
           <input type="text" value={this.state.sex} onChange={this.handleChange} />
         </label>
@@ -95,10 +117,39 @@ class BeneficiarySearch extends React.Component {
           Mental Health
           <input type="checkbox" value={this.state.mentalHealth} onChange={this.handleChange} />
         </label>
-		<br /><br />
-        <input type="submit" value="Find Services" />
+		<br /><br /> */}
+        <button type="submit">Submit</button>
       </form>
+      </div>
     );
   }
 }
-export default BeneficiarySearch;
+
+export class DisplayData extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      age: '',
+      search: ''  
+    };
+}
+
+  display(event) {
+    this.setState = {
+     age: this.state.age,
+     search: this.state.search 
+    };
+  }
+
+  render() {
+    return(
+      <div>
+      {this.state.age}
+      </div>
+
+
+    );
+  }  
+}
+
+export default FormData;
