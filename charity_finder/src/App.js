@@ -9,6 +9,7 @@ import Charity1 from './components/charity/charity1';
 import Charity2 from './components/charity/charity2';
 import CharitySearch from './components/charity/charitySearch';
 import BeneficiarySearch from './components/beneficiary/pages/BeneficiaryPage';
+import charityResultsSearch from './components/charity/charityResultsSearch';
 
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
         <Route path="/charity2" component={Charity2} />
         <Route path="/charitySearch" component={CharitySearch} />
         <Route path="/beneficiary" component={BeneficiarySearch} />
+        <Route path="/charityResultsSearch" component={charityResultsSearch} />
 
       </Router>
     );

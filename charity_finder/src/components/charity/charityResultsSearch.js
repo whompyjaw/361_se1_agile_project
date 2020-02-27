@@ -1,6 +1,6 @@
 import React from 'react';
 import './pages/Charity.css';
-function charitySearchResult() {
+function charityResultsSearch() {
     return(
         <React.Fragment>
             <h2>Dogs</h2>
@@ -94,4 +94,4 @@ function charitySearchResult() {
         </React.Fragment>
     );}
 
-export default charityProfile
+export default charityResultsSearch
