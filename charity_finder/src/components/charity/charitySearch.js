@@ -14,39 +14,62 @@ class charitySearch extends React.Component {
             message: '',
         };
 
-        this.canel = '';
+        this.cancel = '';
     }
 
-    fetchSearchresults = (themeId, query) => {
+    fetchSearchresults = ( query ) => {
 
         /* API Token = 234f2d7a-2389-4ffd-9bfd-535a7fa11273 */
-        const searchUrl = "https://api.globalgiving.org/api/public/projectservice/themes/edu/projects?api_key=234f2d7a-2389-4ffd-9bfd-535a7fa11273"
+        const searchUrl = `https://api.globalgiving.org/api/public/services/search/projects?api_key=234f2d7a-2389-4ffd-9bfd-535a7fa11273&q=${query}`
 
         if ( this.cancel )  {
-            this.cancel.cancel()
+            this.cancel.cancel();
         }
 
-        this.cancel = axios.CancelToken.source()
+        this.cancel = axios.CancelToken.source();
 
         axios.get( searchUrl, {
 			    cancelToken: this.cancel.token
         } )
           .then ( res => {
-            console.warn (res);
+              console.warn(res);
+            /*const resultsNotFound = !res.data.projects.project
+              ? 'Nothing was found. Try a new search.'
+              : '';*/
+            this.setState({
+              results: res.data.response.projects,
+              //message: resultsNotFound,
+              loading:false
+            })
+          })
+          .catch( error => {
+            if (axios.isCancel(error) || error){
+              this.setState({
+                loading:false,
+                message: 'failed to fetch data.'
+              })
+            }
           })
       }; 
 
-    handleOnInputChange = ( event ) => {
+    /* Used for actual rendering search results 
+      
+      handleOnInputChange = ( event ) => {
         const query = event.target.value;
-        console.warn ( query );
-        this.setState( {query: query, loading: true, message: ''});
-    };
+        this.setState( {query: query, loading: true, message: ''}, () => {
+        this.fetchSearchresults(query);
+      } );
+    }; */
+
+    /* hard coded page return */
+    handleOnInputChange = ( event ) => {
+        window.location.href="/charityResultsSearch"
+    }
 
     render() {
 
         const { query } = this.state;
     
-
         return (
             <div className = "container">
             {/*Heading*/}
@@ -61,12 +84,9 @@ class charitySearch extends React.Component {
                     id="search-input"
                     placeholder="Search for Charity"
                     onChange = {this.handleOnInputChange}
-                
                 />
-                 {/*Search Input
-                 This should be in the search field, but I don't know why it isn't*/}
-               <i className="fas fa-search search-icon"></i>
-
+                 {/*Search Input*/}
+               <i className="fa fa-search search-icon" aria-hidden="true"/>
             </label>
             </div>
         )
@@ -75,49 +95,6 @@ class charitySearch extends React.Component {
 
 export default charitySearch;
 
-/*function charitySearch() {
-
-
-     class charityForm extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {value: ''};
-      
-          this.handleChange = this.handleChange.bind(this);
-          this.handleSubmit = this.handleSubmit.bind(this);
-        }
-      
-        handleChange(event) {
-          this.setState({value: event.target.value});
-        }
-      
-        handleSubmit(event) {
-          alert('A theme was submitted: ' + this.state.value);
-          event.preventDefault();
-        }
-      
-        render() {
-          return (
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Theme:
-                <select value={this.state.value} onChange={this.handleChange}>
-                    <option value="grapefruit">Grapefruit</option>
-                    <option value="lime">Lime</option>
-                    <option value="coconut">Coconut</option>
-                    <option value="mango">Mango</option>
-                </select>
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-          );
-        }
-    }
-
-    ReactDOM.render (<charityForm />, document.getElementById('root')); 
-    
-}*/
 
 
 
