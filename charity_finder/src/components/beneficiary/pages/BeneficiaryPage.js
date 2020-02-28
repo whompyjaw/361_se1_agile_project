@@ -8,53 +8,46 @@ class FormData extends React.Component {
       search: '',
       age: '',
       sex: '',
-      resultAge: ''
+      resultAge: '',
+      zip: '',
+      city: '',
+      food: '',
+      addiction: '',
     };
 
-    //this.handleChange = this.handleChange.bind(this);
-   // this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleAgeChange = (event) => {
-    this.setState({
-      age: event.target.value
-    })
-  } 
 
-  handleSearchChange = (event) => {
-    this.setState({
-      search: event.target.value
-    })
-  } 
+handleInputChange(event){
+  const target = event.target;
+  const value = target.type === 'checkbox' ? target.checked : target.value;
+  const name = target.name;
+  
+  this.setState({
+    [name]: value
+  });
+}
 
   handleSubmit = event => {
-    // alert(`${this.state.age} ${this.state.search}`);
-    // this.setState({
-    //   resultAge: this.state.age,
-    //   resultSearch: this.state.search
-    // })
-    DisplayData.display(event);
-    event.preventDefault();
+    alert(`Age: ${this.state.age}
+Search: ${this.state.search}
+Sex: ${this.state.sex}
+Zip: ${this.state.zip}
+City: ${this.state.city}
+Food Assistance: ${this.state.food}
+Addiction: ${this.state.addiction} 
+`); 
+    //event.preventDefault();
   }
   render() {
     const { search, age, sex } = this.state
     return (
     <div> 
-     {/*
-     Results:
-      {this.state.resultSearch}
-      {this.state.resultAge}<br /> -->
-    
-     */}  
-      
-      
-      
-      
-      
       <form onSubmit={this.handleSubmit}>
         <label>
           Search:
-          <input name="search" type="text" value={search} onChange={this.handleSearchChange} />
+          <input name="search" type="text" value={search} onChange={this.handleInputChange} />
         </label>
 		<br />
       <label>
@@ -63,93 +56,42 @@ class FormData extends React.Component {
       </label>
 		<label>
           Age:
-          <input name="age" type="text" value={age} onChange={this.handleAgeChange} />
+          <input name="age" type="text" value={age} onChange={this.handleInputChange} />
         </label>
 		<br />
-		{/* <label>
+		 <label>
           Sex:
-          <input type="text" value={this.state.sex} onChange={this.handleChange} />
+          <input name='sex' type="text" value={sex} onChange={this.handleInputChange} />
         </label>
 		<br />
 		<label>
           Zip Code:
-          <input type="text" value={this.state.zip} onChange={this.handleChange} />
+          <input name='zip' type="text" value={this.state.zip} onChange={this.handleInputChange} />
         </label>
 		<br />
 		<label>
           City:
-          <input type="text" value={this.state.city} onChange={this.handleChange} />
+          <input name='city' type="text" value={this.state.city} onChange={this.handleInputChange} />
         </label>
 		<br />
 
 <p> Services:</p>
 		<label>
         Food 
-          <input type="checkbox" value={this.state.food} onChange={this.handleChange} />
-        </label>
-
-		<label>
-          Domestic Violence
-          <input type="checkbox" value={this.state.domesticViolence} onChange={this.handleChange} />
-        </label>
-		
-		<label>
-          Parental
-          <input type="checkbox" value={this.state.singleParent} onChange={this.handleChange} />
-        </label>
-
-		<label>
-          Financial
-          <input type="checkbox" value={this.state.financial} onChange={this.handleChange} />
+          <input name='food' type="checkbox" checked={this.state.food} onChange={this.handleInputChange} />
         </label>
 
 		<label>
           Addiction
-          <input type="checkbox" value={this.state.addiction} onChange={this.handleChange} />
+          <input name='addiction' type="checkbox" checked={this.state.addiction} onChange={this.handleInputChange} />
         </label>
 
-		<label>
-          Vocational
-          <input type="checkbox" value={this.state.vocational} onChange={this.handleChange} />
-        </label>
-
-		<label>
-          Mental Health
-          <input type="checkbox" value={this.state.mentalHealth} onChange={this.handleChange} />
-        </label>
-		<br /><br /> */}
+		<br /><br />
         <button type="submit">Submit</button>
       </form>
       </div>
     );
   }
-}
-
-export class DisplayData extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      age: '',
-      search: ''  
-    };
-}
-
-  display(event) {
-    this.setState = {
-     age: this.state.age,
-     search: this.state.search 
-    };
-  }
-
-  render() {
-    return(
-      <div>
-      {this.state.age}
-      </div>
-
-
-    );
-  }  
 }
 
 export default FormData;
